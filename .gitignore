@@ -1,0 +1,45 @@
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# Python environments and caches
+.venv/
+venv/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local databases and uploaded files
+**/*.db
+**/uploads/
+data/raw/*
+!data/raw/.gitkeep
+
+# Secrets and local configuration
+.env
+**/.env
+!.env.example
+**/.env.example
+
+# Legacy deployment artifacts containing local credentials or shortcuts
+/DEPLOYMENT_GUIDE.md
+/database/sql/README.md
+/database/sql/02_dataflow_init_data.sql
+/*.docx
+/*.lnk
+/backend/region/data/generated/
+
+# Local diagnostic scripts may contain example token values
+/backend/dataflow/check_jwt_config.py
+/backend/voronoi/test_token_decode.py
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated experiment output
+experiments/results/*
+!experiments/results/.gitkeep

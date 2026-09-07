@@ -1,0 +1,15 @@
+<svg width="560" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="320" fill="#f5f9ff"/>
+  <rect x="36" y="28" width="488" height="264" rx="16" fill="#ffffff" stroke="#c8d8ef" stroke-width="2"/>
+  <rect x="214" y="50" width="132" height="34" rx="8" fill="#2f6fcd"/>
+  <text x="280" y="72" text-anchor="middle" font-size="14" fill="#ffffff" font-family="Segoe UI">Browser</text>
+  <line x1="280" y1="84" x2="280" y2="108" stroke="#7ca0d0" stroke-width="2"/>
+  <rect x="186" y="108" width="188" height="40" rx="8" fill="#5d8fd9"/>
+  <text x="280" y="133" text-anchor="middle" font-size="14" fill="#ffffff" font-family="Segoe UI">Vue Frontend</text>
+  <line x1="280" y1="148" x2="280" y2="174" stroke="#7ca0d0" stroke-width="2"/>
+  <rect x="186" y="174" width="188" height="42" rx="8" fill="#7ea8e6"/>
+  <text x="280" y="200" text-anchor="middle" font-size="14" fill="#ffffff" font-family="Segoe UI">Flask Backend</text>
+  <line x1="280" y1="216" x2="280" y2="242" stroke="#7ca0d0" stroke-width="2"/>
+  <rect x="204" y="242" width="152" height="34" rx="8" fill="#9abceb"/>
+  <text x="280" y="264" text-anchor="middle" font-size="14" fill="#1d3557" font-family="Segoe UI">MySQL</text>
+</svg>

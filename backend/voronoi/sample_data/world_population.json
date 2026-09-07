@@ -1,0 +1,149 @@
+{
+  "name": "世界",
+  "children": [
+    {
+      "name": "亚洲",
+      "children": [
+        {
+          "name": "东亚",
+          "children": [
+            { "name": "中国", "value": 1412 },
+            { "name": "日本", "value": 125 },
+            { "name": "韩国", "value": 52 },
+            { "name": "朝鲜", "value": 26 },
+            { "name": "蒙古", "value": 3 }
+          ]
+        },
+        {
+          "name": "东南亚",
+          "children": [
+            { "name": "印度尼西亚", "value": 274 },
+            { "name": "菲律宾", "value": 114 },
+            { "name": "越南", "value": 98 },
+            { "name": "泰国", "value": 72 },
+            { "name": "缅甸", "value": 55 },
+            { "name": "马来西亚", "value": 33 }
+          ]
+        },
+        {
+          "name": "南亚",
+          "children": [
+            { "name": "印度", "value": 1408 },
+            { "name": "巴基斯坦", "value": 231 },
+            { "name": "孟加拉国", "value": 170 },
+            { "name": "斯里兰卡", "value": 22 }
+          ]
+        },
+        {
+          "name": "西亚",
+          "children": [
+            { "name": "土耳其", "value": 85 },
+            { "name": "伊拉克", "value": 42 },
+            { "name": "沙特阿拉伯", "value": 36 },
+            { "name": "也门", "value": 33 },
+            { "name": "以色列", "value": 9 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "欧洲",
+      "children": [
+        {
+          "name": "西欧",
+          "children": [
+            { "name": "德国", "value": 83 },
+            { "name": "法国", "value": 68 },
+            { "name": "英国", "value": 67 },
+            { "name": "荷兰", "value": 18 },
+            { "name": "比利时", "value": 12 }
+          ]
+        },
+        {
+          "name": "东欧",
+          "children": [
+            { "name": "俄罗斯", "value": 144 },
+            { "name": "乌克兰", "value": 44 },
+            { "name": "波兰", "value": 38 },
+            { "name": "罗马尼亚", "value": 19 }
+          ]
+        },
+        {
+          "name": "南欧",
+          "children": [
+            { "name": "意大利", "value": 59 },
+            { "name": "西班牙", "value": 47 },
+            { "name": "希腊", "value": 10 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "非洲",
+      "children": [
+        {
+          "name": "北非",
+          "children": [
+            { "name": "埃及", "value": 104 },
+            { "name": "阿尔及利亚", "value": 45 },
+            { "name": "摩洛哥", "value": 37 }
+          ]
+        },
+        {
+          "name": "西非",
+          "children": [
+            { "name": "尼日利亚", "value": 218 },
+            { "name": "加纳", "value": 32 },
+            { "name": "科特迪瓦", "value": 28 }
+          ]
+        },
+        {
+          "name": "东非",
+          "children": [
+            { "name": "埃塞俄比亚", "value": 120 },
+            { "name": "坦桑尼亚", "value": 63 },
+            { "name": "肯尼亚", "value": 55 }
+          ]
+        },
+        {
+          "name": "南非地区",
+          "children": [
+            { "name": "南非", "value": 60 },
+            { "name": "莫桑比克", "value": 33 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美洲",
+      "children": [
+        {
+          "name": "北美",
+          "children": [
+            { "name": "美国", "value": 332 },
+            { "name": "墨西哥", "value": 130 },
+            { "name": "加拿大", "value": 38 }
+          ]
+        },
+        {
+          "name": "南美",
+          "children": [
+            { "name": "巴西", "value": 214 },
+            { "name": "哥伦比亚", "value": 51 },
+            { "name": "阿根廷", "value": 46 },
+            { "name": "秘鲁", "value": 34 },
+            { "name": "委内瑞拉", "value": 29 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "大洋洲",
+      "children": [
+        { "name": "澳大利亚", "value": 26 },
+        { "name": "新西兰", "value": 5 },
+        { "name": "巴布亚新几内亚", "value": 9 }
+      ]
+    }
+  ]
+}

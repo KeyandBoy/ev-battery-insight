@@ -1,0 +1,39 @@
+{
+  "source_file": "data\\simulated\\battery_readings.csv",
+  "input_rows": 6000,
+  "output_rows": 6000,
+  "input_columns": [
+    "vehicle_id",
+    "timestamp",
+    "voltage_v",
+    "current_a",
+    "temperature_c",
+    "soc_percent",
+    "remaining_capacity_kwh",
+    "estimated_range_km",
+    "mileage_km"
+  ],
+  "mapped_columns": {
+    "vehicle_id": "vehicle_id",
+    "timestamp": "timestamp",
+    "voltage_v": "voltage_v",
+    "current_a": "current_a",
+    "temperature_c": "temperature_c",
+    "soc_percent": "soc_percent",
+    "remaining_capacity_kwh": "remaining_capacity_kwh",
+    "estimated_range_km": "estimated_range_km",
+    "mileage_km": "mileage_km"
+  },
+  "unmapped_columns": [],
+  "duplicate_rows_removed": 0,
+  "missing_ratio_after_cleaning": 0.0,
+  "missing_ratio_before_cleaning": 0.0,
+  "business_anomalies": {
+    "soc_percent": 0,
+    "temperature_c": 0,
+    "voltage_v": 0,
+    "current_a": 0
+  },
+  "warnings": [],
+  "quality_score": 1.0
+}

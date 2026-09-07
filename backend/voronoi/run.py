@@ -1,0 +1,31 @@
+from app import create_app
+
+app = create_app()
+
+if __name__ == '__main__':
+    print('=' * 60)
+    print('  Voronoi Diagram 层次数据可视化系统 - 后端服务')
+    print('  地址: http://127.0.0.1:5003')
+    print('=' * 60)
+    print()
+    print('API 接口列表:')
+    print('  认证模块:')
+    print('    POST   /api/auth/register    - 用户注册')
+    print('    POST   /api/auth/login       - 用户登录')
+    print('    GET    /api/auth/profile     - 获取用户资料')
+    print('    PUT    /api/auth/profile     - 更新用户资料')
+    print('    PUT    /api/auth/password    - 修改密码')
+    print()
+    print('  数据集模块:')
+    print('    POST   /api/datasets/upload      - 上传数据集')
+    print('    GET    /api/datasets              - 数据集列表')
+    print('    GET    /api/datasets/<id>         - 数据集详情')
+    print('    GET    /api/datasets/<id>/data    - 预处理数据(可视化)')
+    print('    GET    /api/datasets/<id>/raw     - 原始数据')
+    print('    GET    /api/datasets/<id>/preview - 结构预览')
+    print('    PUT    /api/datasets/<id>         - 更新数据集信息')
+    print('    DELETE /api/datasets/<id>         - 删除数据集')
+    print()
+    print('=' * 60)
+
+    app.run(host='0.0.0.0', port=5003, debug=False)

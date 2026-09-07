@@ -1,0 +1,14 @@
+<svg width="560" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="320" fill="#f4f8ff"/>
+  <rect x="30" y="24" width="500" height="272" rx="16" fill="#ffffff" stroke="#c9d9ef" stroke-width="2"/>
+  <rect x="54" y="52" width="220" height="116" fill="#4c82cc"/>
+  <rect x="280" y="52" width="102" height="56" fill="#6498dd"/>
+  <rect x="386" y="52" width="122" height="56" fill="#7aa9e6"/>
+  <rect x="280" y="112" width="228" height="56" fill="#8ab5f0"/>
+  <rect x="54" y="172" width="148" height="98" fill="#5d8fd9"/>
+  <rect x="206" y="172" width="168" height="98" fill="#6fa0e3"/>
+  <rect x="378" y="172" width="130" height="98" fill="#85b2ed"/>
+  <text x="280" y="288" text-anchor="middle" font-size="13" fill="#27476d" font-family="Segoe UI">
+    Squarified Treemap Layout
+  </text>
+</svg>

@@ -1,0 +1,76 @@
+{
+  "name": "project-root",
+  "children": [
+    {
+      "name": "src",
+      "children": [
+        {
+          "name": "components",
+          "children": [
+            { "name": "Header.vue", "value": 120 },
+            { "name": "Footer.vue", "value": 80 },
+            { "name": "Sidebar.vue", "value": 150 },
+            { "name": "VoronoiChart.vue", "value": 350 }
+          ]
+        },
+        {
+          "name": "views",
+          "children": [
+            { "name": "Home.vue", "value": 200 },
+            { "name": "Dashboard.vue", "value": 280 },
+            { "name": "DataManager.vue", "value": 220 },
+            { "name": "Login.vue", "value": 160 }
+          ]
+        },
+        {
+          "name": "utils",
+          "children": [
+            { "name": "voronoi.js", "value": 500 },
+            { "name": "api.js", "value": 180 },
+            { "name": "helpers.js", "value": 90 }
+          ]
+        },
+        {
+          "name": "store",
+          "children": [
+            { "name": "index.js", "value": 60 },
+            { "name": "modules",
+              "children": [
+                { "name": "auth.js", "value": 140 },
+                { "name": "dataset.js", "value": 120 }
+              ]
+            }
+          ]
+        },
+        { "name": "App.vue", "value": 50 },
+        { "name": "main.js", "value": 30 }
+      ]
+    },
+    {
+      "name": "public",
+      "children": [
+        { "name": "index.html", "value": 25 },
+        { "name": "favicon.ico", "value": 5 }
+      ]
+    },
+    {
+      "name": "tests",
+      "children": [
+        { "name": "unit",
+          "children": [
+            { "name": "voronoi.test.js", "value": 300 },
+            { "name": "api.test.js", "value": 200 }
+          ]
+        },
+        { "name": "e2e",
+          "children": [
+            { "name": "login.spec.js", "value": 150 },
+            { "name": "dashboard.spec.js", "value": 180 }
+          ]
+        }
+      ]
+    },
+    { "name": "package.json", "value": 15 },
+    { "name": "README.md", "value": 40 }
+  ]
+}

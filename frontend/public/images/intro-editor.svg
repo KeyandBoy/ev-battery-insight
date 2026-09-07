@@ -1,0 +1,20 @@
+<svg width="560" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="560" height="320" fill="#f5f9ff"/>
+  <rect x="28" y="24" width="504" height="272" rx="14" fill="#ffffff" stroke="#cad9ee" stroke-width="2"/>
+  <rect x="42" y="42" width="110" height="236" fill="#eef4ff" stroke="#d4e1f4"/>
+  <rect x="158" y="42" width="270" height="236" fill="#f8fbff" stroke="#d4e1f4"/>
+  <rect x="434" y="42" width="84" height="236" fill="#eef4ff" stroke="#d4e1f4"/>
+  <rect x="170" y="58" width="120" height="76" rx="6" fill="#5d8fd9"/>
+  <rect x="298" y="58" width="116" height="56" rx="6" fill="#7ea9e7"/>
+  <rect x="170" y="142" width="86" height="64" rx="6" fill="#6b9ce0"/>
+  <rect x="262" y="142" width="152" height="120" rx="6" fill="#8ab4ec"/>
+  <rect x="48" y="56" width="98" height="20" rx="4" fill="#dce9fb"/>
+  <rect x="48" y="84" width="98" height="20" rx="4" fill="#dce9fb"/>
+  <rect x="48" y="112" width="98" height="20" rx="4" fill="#dce9fb"/>
+  <rect x="440" y="56" width="72" height="18" rx="4" fill="#dce9fb"/>
+  <rect x="440" y="80" width="72" height="18" rx="4" fill="#dce9fb"/>
+  <rect x="440" y="104" width="72" height="18" rx="4" fill="#dce9fb"/>
+  <text x="280" y="292" text-anchor="middle" font-size="13" fill="#27476d" font-family="Segoe UI">
+    Low-code Dashboard Editor
+  </text>
+</svg>

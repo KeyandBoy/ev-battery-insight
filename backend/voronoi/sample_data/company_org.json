@@ -1,0 +1,71 @@
+{
+  "name": "总公司",
+  "value": null,
+  "children": [
+    {
+      "name": "技术部",
+      "children": [
+        {
+          "name": "前端组",
+          "children": [
+            { "name": "张三", "value": 85 },
+            { "name": "李四", "value": 92 },
+            { "name": "王五", "value": 78 }
+          ]
+        },
+        {
+          "name": "后端组",
+          "children": [
+            { "name": "赵六", "value": 90 },
+            { "name": "孙七", "value": 88 },
+            { "name": "周八", "value": 95 },
+            { "name": "吴九", "value": 82 }
+          ]
+        },
+        {
+          "name": "测试组",
+          "children": [
+            { "name": "郑十", "value": 75 },
+            { "name": "钱十一", "value": 80 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "市场部",
+      "children": [
+        {
+          "name": "品牌推广",
+          "children": [
+            { "name": "陈一", "value": 70 },
+            { "name": "林二", "value": 65 }
+          ]
+        },
+        {
+          "name": "渠道销售",
+          "children": [
+            { "name": "黄三", "value": 110 },
+            { "name": "杨四", "value": 98 },
+            { "name": "刘五", "value": 105 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "人事部",
+      "children": [
+        { "name": "招聘", "value": 50 },
+        { "name": "培训", "value": 45 },
+        { "name": "薪酬福利", "value": 60 }
+      ]
+    },
+    {
+      "name": "财务部",
+      "children": [
+        { "name": "会计核算", "value": 55 },
+        { "name": "资金管理", "value": 70 },
+        { "name": "税务", "value": 40 }
+      ]
+    }
+  ]
+}
