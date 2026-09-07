@@ -19,10 +19,8 @@ OUTPUT = ROOT / "data" / "processed" / "public_ev_battery_network.json"
 
 
 CATEGORIES = [
-    {"name": "车型群组"},
-    {"name": "电池"},
-    {"name": "品牌"},
-    {"name": "地区"},
+    {"name": "品牌群组"},
+    {"name": "电池规格"},
     {"name": "风险状态"},
 ]
 
@@ -53,33 +51,25 @@ def main() -> None:
     def connect(source: str, target: str, relation: str, value: float = 1) -> None:
         links.append({"source": source, "target": target, "value": round(float(value), 2), "relation": relation})
 
-    # Similar vehicles are represented by one model-group node instead of one node per VIN.
-    frame["model_group"] = frame["brand"].astype(str) + " " + frame["model"].astype(str)
+    # Similar vehicles are represented by one brand-group node instead of one node per VIN or model.
     frame["capacity_group"] = frame["battery_type"].astype(str) + " " + (frame["battery_capacity_kwh"] / 20).round().clip(lower=1).mul(20).astype(int).astype(str) + "kWh级"
-    grouped = frame.groupby("model_group", dropna=False)
-    for model_name, group in grouped:
-        model = safe_id("model", model_name)
-        brand_name = str(group["brand"].mode().iloc[0])
-        battery_name = str(group["capacity_group"].mode().iloc[0])
-        state_name = str(group["state"].mode().iloc[0])
+    grouped = frame.groupby("brand", dropna=False)
+    for brand_name, group in grouped:
+        brand_name = str(brand_name)
         brand = safe_id("brand", brand_name)
-        battery = safe_id("battery", battery_name)
-        state = safe_id("state", state_name)
-        add_node(nodes, model, model_name, 0, len(group), f"{len(group)}辆车，平均健康分 {group.health_score.mean():.1f}，平均续航 {group.electric_range_km.mean():.0f} km")
-        add_node(nodes, battery, battery_name, 1, int(frame["capacity_group"].eq(battery_name).sum()), "按电池类型和容量区间合并")
-        add_node(nodes, brand, brand_name, 2, int(frame["brand"].eq(brand_name).sum()), "制造商品牌合并节点")
-        add_node(nodes, state, state_name, 3, int(frame["state"].eq(state_name).sum()), "登记地区合并节点")
-        connect(model, battery, "电池类型", len(group))
-        connect(model, brand, "品牌", len(group))
-        connect(model, state, "地区", len(group))
+        add_node(nodes, brand, brand_name, 0, len(group), f"{len(group)}辆车，平均健康分 {group.health_score.mean():.1f}，覆盖 {group.model.nunique()} 个车型")
+        for battery_name, battery_group in group.groupby("capacity_group"):
+            battery = safe_id("battery", battery_name)
+            add_node(nodes, battery, str(battery_name), 1, int(frame["capacity_group"].eq(battery_name).sum()), "按电池类型和容量区间合并")
+            connect(brand, battery, "电池规格", len(battery_group))
         for risk, risk_group in group.groupby("risk_level"):
             risk_id = safe_id("risk", RISK_KEYS[str(risk)])
-            add_node(nodes, risk_id, str(risk), 4, int(frame["risk_level"].eq(risk).sum()), f"{int(frame['risk_level'].eq(risk).sum())}辆车处于该状态")
-            connect(model, risk_id, "风险状态", len(risk_group))
+            add_node(nodes, risk_id, str(risk), 2, int(frame["risk_level"].eq(risk).sum()), f"{int(frame['risk_level'].eq(risk).sum())}辆车处于该状态")
+            connect(brand, risk_id, "风险状态", len(risk_group))
 
     graph = {
         "name": "新能源汽车电池健康与充电风险关系网络",
-        "description": "由公开新能源汽车车辆数据整理生成的聚合关系网络。相同车型合并为车型群组，电池容量、品牌、地区和风险状态也按类别合并，健康指标为测试派生值。",
+        "description": "由公开新能源汽车车辆数据整理生成的深度聚合关系网络。相同品牌、电池规格和风险状态合并为群组，健康指标为测试派生值。",
         "source": "Electric Vehicle Population Data",
         "nodes": list(nodes.values()),
         "links": links,

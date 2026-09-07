@@ -1,14 +1,14 @@
 {
   "name": "新能源汽车电池健康与充电风险关系网络",
-  "description": "由公开新能源汽车车辆数据整理生成的聚合关系网络。相同车型合并为车型群组，电池容量、品牌、地区和风险状态也按类别合并，健康指标为测试派生值。",
+  "description": "由公开新能源汽车车辆数据整理生成的深度聚合关系网络。相同品牌、电池规格和风险状态合并为群组，健康指标为测试派生值。",
   "source": "Electric Vehicle Population Data",
   "nodes": [
     {
-      "id": "model_AUDI_A3",
-      "name": "AUDI A3",
+      "id": "brand_AUDI",
+      "name": "AUDI",
       "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 70.6，平均续航 26 km"
+      "value": 5,
+      "desc": "5辆车，平均健康分 72.0，覆盖 3 个车型"
     },
     {
       "id": "battery_PHEV_20kWh",
@@ -18,74 +18,25 @@
       "desc": "按电池类型和容量区间合并"
     },
     {
-      "id": "brand_AUDI",
-      "name": "AUDI",
-      "category": 2,
-      "value": 5,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "state_WA",
-      "name": "WA",
-      "category": 3,
-      "value": 200,
-      "desc": "登记地区合并节点"
-    },
-    {
       "id": "risk_attention",
       "name": "关注",
-      "category": 4,
+      "category": 2,
       "value": 38,
       "desc": "38辆车处于该状态"
     },
     {
-      "id": "model_AUDI_Q5",
-      "name": "AUDI Q5",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 69.8，平均续航 37 km"
-    },
-    {
-      "id": "model_AUDI_Q5_E",
-      "name": "AUDI Q5 E",
-      "category": 0,
-      "value": 3,
-      "desc": "3辆车，平均健康分 73.2，平均续航 37 km"
-    },
-    {
       "id": "risk_good",
       "name": "良好",
-      "category": 4,
+      "category": 2,
       "value": 160,
       "desc": "160辆车处于该状态"
     },
     {
-      "id": "model_BMW_330E",
-      "name": "BMW 330E",
-      "category": 0,
-      "value": 2,
-      "desc": "2辆车，平均健康分 70.4，平均续航 29 km"
-    },
-    {
       "id": "brand_BMW",
       "name": "BMW",
-      "category": 2,
+      "category": 0,
       "value": 15,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_BMW_530E",
-      "name": "BMW 530E",
-      "category": 0,
-      "value": 2,
-      "desc": "2辆车，平均健康分 70.5，平均续航 29 km"
-    },
-    {
-      "id": "model_BMW_I3",
-      "name": "BMW I3",
-      "category": 0,
-      "value": 6,
-      "desc": "6辆车，平均健康分 84.9，平均续航 138 km"
+      "desc": "15辆车，平均健康分 78.2，覆盖 4 个车型"
     },
     {
       "id": "battery_BEV_20kWh",
@@ -95,18 +46,18 @@
       "desc": "按电池类型和容量区间合并"
     },
     {
-      "id": "model_BMW_X5",
-      "name": "BMW X5",
-      "category": 0,
-      "value": 5,
-      "desc": "5辆车，平均健康分 76.4，平均续航 51 km"
+      "id": "battery_PHEV_40kWh",
+      "name": "PHEV 40kWh级",
+      "category": 1,
+      "value": 1,
+      "desc": "按电池类型和容量区间合并"
     },
     {
-      "id": "model_CHEVROLET_BOLT_EV",
-      "name": "CHEVROLET BOLT EV",
+      "id": "brand_CHEVROLET",
+      "name": "CHEVROLET",
       "category": 0,
-      "value": 10,
-      "desc": "10辆车，平均健康分 85.9，平均续航 397 km"
+      "value": 12,
+      "desc": "12辆车，平均健康分 84.7，覆盖 2 个车型"
     },
     {
       "id": "battery_BEV_60kWh",
@@ -116,293 +67,6 @@
       "desc": "按电池类型和容量区间合并"
     },
     {
-      "id": "brand_CHEVROLET",
-      "name": "CHEVROLET",
-      "category": 2,
-      "value": 12,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_CHEVROLET_VOLT",
-      "name": "CHEVROLET VOLT",
-      "category": 0,
-      "value": 2,
-      "desc": "2辆车，平均健康分 78.6，平均续航 71 km"
-    },
-    {
-      "id": "model_CHRYSLER_PACIFICA",
-      "name": "CHRYSLER PACIFICA",
-      "category": 0,
-      "value": 3,
-      "desc": "3辆车，平均健康分 76.7，平均续航 52 km"
-    },
-    {
-      "id": "brand_CHRYSLER",
-      "name": "CHRYSLER",
-      "category": 2,
-      "value": 3,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_FIAT_500",
-      "name": "FIAT 500",
-      "category": 0,
-      "value": 4,
-      "desc": "4辆车，平均健康分 85.3，平均续航 136 km"
-    },
-    {
-      "id": "brand_FIAT",
-      "name": "FIAT",
-      "category": 2,
-      "value": 4,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_FORD_C-MAX",
-      "name": "FORD C-MAX",
-      "category": 0,
-      "value": 2,
-      "desc": "2辆车，平均健康分 70.2，平均续航 31 km"
-    },
-    {
-      "id": "brand_FORD",
-      "name": "FORD",
-      "category": 2,
-      "value": 2,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_HONDA_CLARITY",
-      "name": "HONDA CLARITY",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 77.1，平均续航 76 km"
-    },
-    {
-      "id": "brand_HONDA",
-      "name": "HONDA",
-      "category": 2,
-      "value": 1,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_HYUNDAI_IONIQ",
-      "name": "HYUNDAI IONIQ",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 77.2，平均续航 47 km"
-    },
-    {
-      "id": "brand_HYUNDAI",
-      "name": "HYUNDAI",
-      "category": 2,
-      "value": 2,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_HYUNDAI_SANTA_FE",
-      "name": "HYUNDAI SANTA FE",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 74.0，平均续航 50 km"
-    },
-    {
-      "id": "model_JEEP_GRAND_CHEROKEE",
-      "name": "JEEP GRAND CHEROKEE",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 72.2，平均续航 40 km"
-    },
-    {
-      "id": "brand_JEEP",
-      "name": "JEEP",
-      "category": 2,
-      "value": 9,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_JEEP_WRANGLER",
-      "name": "JEEP WRANGLER",
-      "category": 0,
-      "value": 8,
-      "desc": "8辆车，平均健康分 71.6，平均续航 35 km"
-    },
-    {
-      "id": "model_KIA_NIRO",
-      "name": "KIA NIRO",
-      "category": 0,
-      "value": 6,
-      "desc": "6辆车，平均健康分 78.0，平均续航 158 km"
-    },
-    {
-      "id": "brand_KIA",
-      "name": "KIA",
-      "category": 2,
-      "value": 16,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_KIA_SORENTO",
-      "name": "KIA SORENTO",
-      "category": 0,
-      "value": 4,
-      "desc": "4辆车，平均健康分 76.2，平均续航 51 km"
-    },
-    {
-      "id": "model_KIA_SOUL",
-      "name": "KIA SOUL",
-      "category": 0,
-      "value": 5,
-      "desc": "5辆车，平均健康分 84.7，平均续航 150 km"
-    },
-    {
-      "id": "model_KIA_SPORTAGE",
-      "name": "KIA SPORTAGE",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 73.1，平均续航 55 km"
-    },
-    {
-      "id": "model_LEXUS_NX",
-      "name": "LEXUS NX",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 79.1，平均续航 60 km"
-    },
-    {
-      "id": "brand_LEXUS",
-      "name": "LEXUS",
-      "category": 2,
-      "value": 2,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_LEXUS_RX",
-      "name": "LEXUS RX",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 74.8，平均续航 60 km"
-    },
-    {
-      "id": "model_MAZDA_CX-70",
-      "name": "MAZDA CX-70",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 73.9，平均续航 42 km"
-    },
-    {
-      "id": "brand_MAZDA",
-      "name": "MAZDA",
-      "category": 2,
-      "value": 5,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_MAZDA_CX-90",
-      "name": "MAZDA CX-90",
-      "category": 0,
-      "value": 4,
-      "desc": "4辆车，平均健康分 72.7，平均续航 42 km"
-    },
-    {
-      "id": "model_MERCEDES-BENZ_GLC-CLASS",
-      "name": "MERCEDES-BENZ GLC-CLASS",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 70.2，平均续航 16 km"
-    },
-    {
-      "id": "brand_MERCEDES-BENZ",
-      "name": "MERCEDES-BENZ",
-      "category": 2,
-      "value": 1,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_MITSUBISHI_OUTLANDER",
-      "name": "MITSUBISHI OUTLANDER",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 73.3，平均续航 35 km"
-    },
-    {
-      "id": "brand_MITSUBISHI",
-      "name": "MITSUBISHI",
-      "category": 2,
-      "value": 1,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_NISSAN_LEAF",
-      "name": "NISSAN LEAF",
-      "category": 0,
-      "value": 25,
-      "desc": "25辆车，平均健康分 86.1，平均续航 165 km"
-    },
-    {
-      "id": "brand_NISSAN",
-      "name": "NISSAN",
-      "category": 2,
-      "value": 25,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "risk_healthy",
-      "name": "健康",
-      "category": 4,
-      "value": 2,
-      "desc": "2辆车处于该状态"
-    },
-    {
-      "id": "model_POLESTAR_PS2",
-      "name": "POLESTAR PS2",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 84.4，平均续航 375 km"
-    },
-    {
-      "id": "brand_POLESTAR",
-      "name": "POLESTAR",
-      "category": 2,
-      "value": 1,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_TESLA_MODEL_3",
-      "name": "TESLA MODEL 3",
-      "category": 0,
-      "value": 44,
-      "desc": "44辆车，平均健康分 86.2，平均续航 386 km"
-    },
-    {
-      "id": "brand_TESLA",
-      "name": "TESLA",
-      "category": 2,
-      "value": 85,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_TESLA_MODEL_S",
-      "name": "TESLA MODEL S",
-      "category": 0,
-      "value": 18,
-      "desc": "18辆车，平均健康分 85.7，平均续航 356 km"
-    },
-    {
-      "id": "model_TESLA_MODEL_X",
-      "name": "TESLA MODEL X",
-      "category": 0,
-      "value": 14,
-      "desc": "14辆车，平均健康分 85.8，平均续航 371 km"
-    },
-    {
-      "id": "model_TESLA_MODEL_Y",
-      "name": "TESLA MODEL Y",
-      "category": 0,
-      "value": 9,
-      "desc": "9辆车，平均健康分 86.0，平均续航 468 km"
-    },
-    {
       "id": "battery_BEV_80kWh",
       "name": "BEV 80kWh级",
       "category": 1,
@@ -410,1017 +74,483 @@
       "desc": "按电池类型和容量区间合并"
     },
     {
-      "id": "model_TOYOTA_PRIUS_PLUG-IN",
-      "name": "TOYOTA PRIUS PLUG-IN",
+      "id": "brand_CHRYSLER",
+      "name": "CHRYSLER",
+      "category": 0,
+      "value": 3,
+      "desc": "3辆车，平均健康分 76.7，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_FIAT",
+      "name": "FIAT",
+      "category": 0,
+      "value": 4,
+      "desc": "4辆车，平均健康分 85.3，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_FORD",
+      "name": "FORD",
+      "category": 0,
+      "value": 2,
+      "desc": "2辆车，平均健康分 70.2，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_HONDA",
+      "name": "HONDA",
       "category": 0,
       "value": 1,
-      "desc": "1辆车，平均健康分 66.9，平均续航 10 km"
+      "desc": "1辆车，平均健康分 77.1，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_HYUNDAI",
+      "name": "HYUNDAI",
+      "category": 0,
+      "value": 2,
+      "desc": "2辆车，平均健康分 75.6，覆盖 2 个车型"
+    },
+    {
+      "id": "brand_JEEP",
+      "name": "JEEP",
+      "category": 0,
+      "value": 9,
+      "desc": "9辆车，平均健康分 71.6，覆盖 2 个车型"
+    },
+    {
+      "id": "brand_KIA",
+      "name": "KIA",
+      "category": 0,
+      "value": 16,
+      "desc": "16辆车，平均健康分 79.4，覆盖 4 个车型"
+    },
+    {
+      "id": "brand_LEXUS",
+      "name": "LEXUS",
+      "category": 0,
+      "value": 2,
+      "desc": "2辆车，平均健康分 76.9，覆盖 2 个车型"
+    },
+    {
+      "id": "brand_MAZDA",
+      "name": "MAZDA",
+      "category": 0,
+      "value": 5,
+      "desc": "5辆车，平均健康分 72.9，覆盖 2 个车型"
+    },
+    {
+      "id": "brand_MERCEDES-BENZ",
+      "name": "MERCEDES-BENZ",
+      "category": 0,
+      "value": 1,
+      "desc": "1辆车，平均健康分 70.2，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_MITSUBISHI",
+      "name": "MITSUBISHI",
+      "category": 0,
+      "value": 1,
+      "desc": "1辆车，平均健康分 73.3，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_NISSAN",
+      "name": "NISSAN",
+      "category": 0,
+      "value": 25,
+      "desc": "25辆车，平均健康分 86.1，覆盖 1 个车型"
+    },
+    {
+      "id": "battery_BEV_40kWh",
+      "name": "BEV 40kWh级",
+      "category": 1,
+      "value": 10,
+      "desc": "按电池类型和容量区间合并"
+    },
+    {
+      "id": "risk_healthy",
+      "name": "健康",
+      "category": 2,
+      "value": 2,
+      "desc": "2辆车处于该状态"
+    },
+    {
+      "id": "brand_POLESTAR",
+      "name": "POLESTAR",
+      "category": 0,
+      "value": 1,
+      "desc": "1辆车，平均健康分 84.4，覆盖 1 个车型"
+    },
+    {
+      "id": "brand_TESLA",
+      "name": "TESLA",
+      "category": 0,
+      "value": 85,
+      "desc": "85辆车，平均健康分 86.0，覆盖 4 个车型"
+    },
+    {
+      "id": "battery_BEV_100kWh",
+      "name": "BEV 100kWh级",
+      "category": 1,
+      "value": 8,
+      "desc": "按电池类型和容量区间合并"
     },
     {
       "id": "brand_TOYOTA",
       "name": "TOYOTA",
-      "category": 2,
+      "category": 0,
       "value": 7,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_TOYOTA_PRIUS_PRIME",
-      "name": "TOYOTA PRIUS PRIME",
-      "category": 0,
-      "value": 2,
-      "desc": "2辆车，平均健康分 74.2，平均续航 40 km"
-    },
-    {
-      "id": "model_TOYOTA_RAV4_PRIME",
-      "name": "TOYOTA RAV4 PRIME",
-      "category": 0,
-      "value": 4,
-      "desc": "4辆车，平均健康分 78.0，平均续航 68 km"
-    },
-    {
-      "id": "model_VOLVO_XC60",
-      "name": "VOLVO XC60",
-      "category": 0,
-      "value": 1,
-      "desc": "1辆车，平均健康分 76.8，平均续航 56 km"
+      "desc": "7辆车，平均健康分 75.3，覆盖 3 个车型"
     },
     {
       "id": "brand_VOLVO",
       "name": "VOLVO",
-      "category": 2,
-      "value": 4,
-      "desc": "制造商品牌合并节点"
-    },
-    {
-      "id": "model_VOLVO_XC90",
-      "name": "VOLVO XC90",
       "category": 0,
-      "value": 3,
-      "desc": "3辆车，平均健康分 71.8，平均续航 36 km"
+      "value": 4,
+      "desc": "4辆车，平均健康分 73.0，覆盖 2 个车型"
     }
   ],
   "links": [
     {
-      "source": "model_AUDI_A3",
+      "source": "brand_AUDI",
       "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
+      "value": 5.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_AUDI_A3",
-      "target": "brand_AUDI",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_AUDI_A3",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_AUDI_A3",
+      "source": "brand_AUDI",
       "target": "risk_attention",
-      "value": 1.0,
+      "value": 4.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_AUDI_Q5",
-      "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_AUDI_Q5",
-      "target": "brand_AUDI",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_AUDI_Q5",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_AUDI_Q5",
-      "target": "risk_attention",
-      "value": 1.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_AUDI_Q5_E",
-      "target": "battery_PHEV_20kWh",
-      "value": 3.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_AUDI_Q5_E",
-      "target": "brand_AUDI",
-      "value": 3.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_AUDI_Q5_E",
-      "target": "state_WA",
-      "value": 3.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_AUDI_Q5_E",
-      "target": "risk_attention",
-      "value": 2.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_AUDI_Q5_E",
+      "source": "brand_AUDI",
       "target": "risk_good",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_BMW_330E",
-      "target": "battery_PHEV_20kWh",
-      "value": 2.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_BMW_330E",
-      "target": "brand_BMW",
-      "value": 2.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_BMW_330E",
-      "target": "state_WA",
-      "value": 2.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_BMW_330E",
-      "target": "risk_attention",
-      "value": 2.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_BMW_530E",
-      "target": "battery_PHEV_20kWh",
-      "value": 2.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_BMW_530E",
-      "target": "brand_BMW",
-      "value": 2.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_BMW_530E",
-      "target": "state_WA",
-      "value": 2.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_BMW_530E",
-      "target": "risk_attention",
-      "value": 2.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_BMW_I3",
+      "source": "brand_BMW",
       "target": "battery_BEV_20kWh",
-      "value": 6.0,
-      "relation": "电池类型"
+      "value": 3.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_BMW_I3",
-      "target": "brand_BMW",
-      "value": 6.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_BMW_I3",
-      "target": "state_WA",
-      "value": 6.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_BMW_I3",
-      "target": "risk_good",
-      "value": 6.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_BMW_X5",
+      "source": "brand_BMW",
       "target": "battery_PHEV_20kWh",
-      "value": 5.0,
-      "relation": "电池类型"
+      "value": 11.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_BMW_X5",
-      "target": "brand_BMW",
-      "value": 5.0,
-      "relation": "品牌"
+      "source": "brand_BMW",
+      "target": "battery_PHEV_40kWh",
+      "value": 1.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_BMW_X5",
-      "target": "state_WA",
-      "value": 5.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_BMW_X5",
-      "target": "risk_good",
-      "value": 5.0,
+      "source": "brand_BMW",
+      "target": "risk_attention",
+      "value": 4.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_CHEVROLET_BOLT_EV",
+      "source": "brand_BMW",
+      "target": "risk_good",
+      "value": 11.0,
+      "relation": "风险状态"
+    },
+    {
+      "source": "brand_CHEVROLET",
       "target": "battery_BEV_60kWh",
-      "value": 10.0,
-      "relation": "电池类型"
+      "value": 6.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_CHEVROLET_BOLT_EV",
-      "target": "brand_CHEVROLET",
-      "value": 10.0,
-      "relation": "品牌"
+      "source": "brand_CHEVROLET",
+      "target": "battery_BEV_80kWh",
+      "value": 4.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_CHEVROLET_BOLT_EV",
-      "target": "state_WA",
-      "value": 10.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_CHEVROLET_BOLT_EV",
-      "target": "risk_good",
-      "value": 10.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_CHEVROLET_VOLT",
+      "source": "brand_CHEVROLET",
       "target": "battery_PHEV_20kWh",
       "value": 2.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_CHEVROLET_VOLT",
-      "target": "brand_CHEVROLET",
-      "value": 2.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_CHEVROLET_VOLT",
-      "target": "state_WA",
-      "value": 2.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_CHEVROLET_VOLT",
+      "source": "brand_CHEVROLET",
       "target": "risk_good",
-      "value": 2.0,
+      "value": 12.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_CHRYSLER_PACIFICA",
+      "source": "brand_CHRYSLER",
       "target": "battery_PHEV_20kWh",
       "value": 3.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_CHRYSLER_PACIFICA",
-      "target": "brand_CHRYSLER",
-      "value": 3.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_CHRYSLER_PACIFICA",
-      "target": "state_WA",
-      "value": 3.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_CHRYSLER_PACIFICA",
+      "source": "brand_CHRYSLER",
       "target": "risk_good",
       "value": 3.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_FIAT_500",
+      "source": "brand_FIAT",
       "target": "battery_BEV_20kWh",
       "value": 4.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_FIAT_500",
-      "target": "brand_FIAT",
-      "value": 4.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_FIAT_500",
-      "target": "state_WA",
-      "value": 4.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_FIAT_500",
+      "source": "brand_FIAT",
       "target": "risk_good",
       "value": 4.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_FORD_C-MAX",
+      "source": "brand_FORD",
       "target": "battery_PHEV_20kWh",
       "value": 2.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_FORD_C-MAX",
-      "target": "brand_FORD",
-      "value": 2.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_FORD_C-MAX",
-      "target": "state_WA",
-      "value": 2.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_FORD_C-MAX",
+      "source": "brand_FORD",
       "target": "risk_attention",
       "value": 2.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_HONDA_CLARITY",
+      "source": "brand_HONDA",
       "target": "battery_PHEV_20kWh",
       "value": 1.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_HONDA_CLARITY",
-      "target": "brand_HONDA",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_HONDA_CLARITY",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_HONDA_CLARITY",
+      "source": "brand_HONDA",
       "target": "risk_good",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_HYUNDAI_IONIQ",
+      "source": "brand_HYUNDAI",
       "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
+      "value": 2.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_HYUNDAI_IONIQ",
-      "target": "brand_HYUNDAI",
+      "source": "brand_HYUNDAI",
+      "target": "risk_attention",
       "value": 1.0,
-      "relation": "品牌"
+      "relation": "风险状态"
     },
     {
-      "source": "model_HYUNDAI_IONIQ",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_HYUNDAI_IONIQ",
+      "source": "brand_HYUNDAI",
       "target": "risk_good",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_HYUNDAI_SANTA_FE",
+      "source": "brand_JEEP",
       "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
+      "value": 9.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_HYUNDAI_SANTA_FE",
-      "target": "brand_HYUNDAI",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_HYUNDAI_SANTA_FE",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_HYUNDAI_SANTA_FE",
+      "source": "brand_JEEP",
       "target": "risk_attention",
-      "value": 1.0,
+      "value": 9.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_JEEP_GRAND_CHEROKEE",
-      "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_JEEP_GRAND_CHEROKEE",
-      "target": "brand_JEEP",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_JEEP_GRAND_CHEROKEE",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_JEEP_GRAND_CHEROKEE",
-      "target": "risk_attention",
-      "value": 1.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_JEEP_WRANGLER",
-      "target": "battery_PHEV_20kWh",
-      "value": 8.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_JEEP_WRANGLER",
-      "target": "brand_JEEP",
-      "value": 8.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_JEEP_WRANGLER",
-      "target": "state_WA",
-      "value": 8.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_JEEP_WRANGLER",
-      "target": "risk_attention",
-      "value": 8.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_KIA_NIRO",
-      "target": "battery_PHEV_20kWh",
-      "value": 6.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_KIA_NIRO",
-      "target": "brand_KIA",
-      "value": 6.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_KIA_NIRO",
-      "target": "state_WA",
-      "value": 6.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_KIA_NIRO",
-      "target": "risk_attention",
-      "value": 3.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_KIA_NIRO",
-      "target": "risk_good",
-      "value": 3.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_KIA_SORENTO",
-      "target": "battery_PHEV_20kWh",
-      "value": 4.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_KIA_SORENTO",
-      "target": "brand_KIA",
-      "value": 4.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_KIA_SORENTO",
-      "target": "state_WA",
-      "value": 4.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_KIA_SORENTO",
-      "target": "risk_attention",
-      "value": 1.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_KIA_SORENTO",
-      "target": "risk_good",
-      "value": 3.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_KIA_SOUL",
+      "source": "brand_KIA",
       "target": "battery_BEV_20kWh",
       "value": 5.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_KIA_SOUL",
-      "target": "brand_KIA",
-      "value": 5.0,
-      "relation": "品牌"
+      "source": "brand_KIA",
+      "target": "battery_BEV_60kWh",
+      "value": 2.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_KIA_SOUL",
-      "target": "state_WA",
-      "value": 5.0,
-      "relation": "地区"
+      "source": "brand_KIA",
+      "target": "battery_PHEV_20kWh",
+      "value": 9.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_KIA_SOUL",
-      "target": "risk_good",
+      "source": "brand_KIA",
+      "target": "risk_attention",
       "value": 5.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_KIA_SPORTAGE",
+      "source": "brand_KIA",
+      "target": "risk_good",
+      "value": 11.0,
+      "relation": "风险状态"
+    },
+    {
+      "source": "brand_LEXUS",
       "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
+      "value": 2.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_KIA_SPORTAGE",
-      "target": "brand_KIA",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_KIA_SPORTAGE",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_KIA_SPORTAGE",
+      "source": "brand_LEXUS",
       "target": "risk_attention",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_LEXUS_NX",
-      "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_LEXUS_NX",
-      "target": "brand_LEXUS",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_LEXUS_NX",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_LEXUS_NX",
+      "source": "brand_LEXUS",
       "target": "risk_good",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_LEXUS_RX",
+      "source": "brand_MAZDA",
+      "target": "battery_PHEV_20kWh",
+      "value": 5.0,
+      "relation": "电池规格"
+    },
+    {
+      "source": "brand_MAZDA",
+      "target": "risk_attention",
+      "value": 5.0,
+      "relation": "风险状态"
+    },
+    {
+      "source": "brand_MERCEDES-BENZ",
       "target": "battery_PHEV_20kWh",
       "value": 1.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_LEXUS_RX",
-      "target": "brand_LEXUS",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_LEXUS_RX",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_LEXUS_RX",
+      "source": "brand_MERCEDES-BENZ",
       "target": "risk_attention",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_MAZDA_CX-70",
+      "source": "brand_MITSUBISHI",
       "target": "battery_PHEV_20kWh",
       "value": 1.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_MAZDA_CX-70",
-      "target": "brand_MAZDA",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_MAZDA_CX-70",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_MAZDA_CX-70",
+      "source": "brand_MITSUBISHI",
       "target": "risk_attention",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_MAZDA_CX-90",
-      "target": "battery_PHEV_20kWh",
-      "value": 4.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_MAZDA_CX-90",
-      "target": "brand_MAZDA",
-      "value": 4.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_MAZDA_CX-90",
-      "target": "state_WA",
-      "value": 4.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_MAZDA_CX-90",
-      "target": "risk_attention",
-      "value": 4.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_MERCEDES-BENZ_GLC-CLASS",
-      "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_MERCEDES-BENZ_GLC-CLASS",
-      "target": "brand_MERCEDES-BENZ",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_MERCEDES-BENZ_GLC-CLASS",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_MERCEDES-BENZ_GLC-CLASS",
-      "target": "risk_attention",
-      "value": 1.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_MITSUBISHI_OUTLANDER",
-      "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_MITSUBISHI_OUTLANDER",
-      "target": "brand_MITSUBISHI",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_MITSUBISHI_OUTLANDER",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_MITSUBISHI_OUTLANDER",
-      "target": "risk_attention",
-      "value": 1.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_NISSAN_LEAF",
+      "source": "brand_NISSAN",
       "target": "battery_BEV_20kWh",
-      "value": 25.0,
-      "relation": "电池类型"
+      "value": 15.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_NISSAN_LEAF",
-      "target": "brand_NISSAN",
-      "value": 25.0,
-      "relation": "品牌"
+      "source": "brand_NISSAN",
+      "target": "battery_BEV_40kWh",
+      "value": 10.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_NISSAN_LEAF",
-      "target": "state_WA",
-      "value": 25.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_NISSAN_LEAF",
+      "source": "brand_NISSAN",
       "target": "risk_healthy",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_NISSAN_LEAF",
+      "source": "brand_NISSAN",
       "target": "risk_good",
       "value": 24.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_POLESTAR_PS2",
+      "source": "brand_POLESTAR",
       "target": "battery_BEV_60kWh",
       "value": 1.0,
-      "relation": "电池类型"
+      "relation": "电池规格"
     },
     {
-      "source": "model_POLESTAR_PS2",
-      "target": "brand_POLESTAR",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_POLESTAR_PS2",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_POLESTAR_PS2",
+      "source": "brand_POLESTAR",
       "target": "risk_good",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_TESLA_MODEL_3",
+      "source": "brand_TESLA",
+      "target": "battery_BEV_100kWh",
+      "value": 8.0,
+      "relation": "电池规格"
+    },
+    {
+      "source": "brand_TESLA",
       "target": "battery_BEV_60kWh",
-      "value": 44.0,
-      "relation": "电池类型"
+      "value": 57.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_TESLA_MODEL_3",
-      "target": "brand_TESLA",
-      "value": 44.0,
-      "relation": "品牌"
+      "source": "brand_TESLA",
+      "target": "battery_BEV_80kWh",
+      "value": 20.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_TESLA_MODEL_3",
-      "target": "state_WA",
-      "value": 44.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TESLA_MODEL_3",
+      "source": "brand_TESLA",
       "target": "risk_healthy",
       "value": 1.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_TESLA_MODEL_3",
+      "source": "brand_TESLA",
       "target": "risk_good",
-      "value": 43.0,
+      "value": 84.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_TESLA_MODEL_S",
-      "target": "battery_BEV_60kWh",
-      "value": 18.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_TESLA_MODEL_S",
-      "target": "brand_TESLA",
-      "value": 18.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_TESLA_MODEL_S",
-      "target": "state_WA",
-      "value": 18.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TESLA_MODEL_S",
-      "target": "risk_good",
-      "value": 18.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_TESLA_MODEL_X",
-      "target": "battery_BEV_60kWh",
-      "value": 14.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_TESLA_MODEL_X",
-      "target": "brand_TESLA",
-      "value": 14.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_TESLA_MODEL_X",
-      "target": "state_WA",
-      "value": 14.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TESLA_MODEL_X",
-      "target": "risk_good",
-      "value": 14.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_TESLA_MODEL_Y",
-      "target": "battery_BEV_80kWh",
-      "value": 9.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_TESLA_MODEL_Y",
-      "target": "brand_TESLA",
-      "value": 9.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_TESLA_MODEL_Y",
-      "target": "state_WA",
-      "value": 9.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TESLA_MODEL_Y",
-      "target": "risk_good",
-      "value": 9.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_TOYOTA_PRIUS_PLUG-IN",
+      "source": "brand_TOYOTA",
       "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
+      "value": 7.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_TOYOTA_PRIUS_PLUG-IN",
-      "target": "brand_TOYOTA",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_TOYOTA_PRIUS_PLUG-IN",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TOYOTA_PRIUS_PLUG-IN",
+      "source": "brand_TOYOTA",
       "target": "risk_attention",
-      "value": 1.0,
+      "value": 3.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_TOYOTA_PRIUS_PRIME",
+      "source": "brand_TOYOTA",
+      "target": "risk_good",
+      "value": 4.0,
+      "relation": "风险状态"
+    },
+    {
+      "source": "brand_VOLVO",
       "target": "battery_PHEV_20kWh",
-      "value": 2.0,
-      "relation": "电池类型"
+      "value": 4.0,
+      "relation": "电池规格"
     },
     {
-      "source": "model_TOYOTA_PRIUS_PRIME",
-      "target": "brand_TOYOTA",
-      "value": 2.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_TOYOTA_PRIUS_PRIME",
-      "target": "state_WA",
-      "value": 2.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TOYOTA_PRIUS_PRIME",
+      "source": "brand_VOLVO",
       "target": "risk_attention",
       "value": 2.0,
       "relation": "风险状态"
     },
     {
-      "source": "model_TOYOTA_RAV4_PRIME",
-      "target": "battery_PHEV_20kWh",
-      "value": 4.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_TOYOTA_RAV4_PRIME",
-      "target": "brand_TOYOTA",
-      "value": 4.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_TOYOTA_RAV4_PRIME",
-      "target": "state_WA",
-      "value": 4.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_TOYOTA_RAV4_PRIME",
+      "source": "brand_VOLVO",
       "target": "risk_good",
-      "value": 4.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_VOLVO_XC60",
-      "target": "battery_PHEV_20kWh",
-      "value": 1.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_VOLVO_XC60",
-      "target": "brand_VOLVO",
-      "value": 1.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_VOLVO_XC60",
-      "target": "state_WA",
-      "value": 1.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_VOLVO_XC60",
-      "target": "risk_good",
-      "value": 1.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_VOLVO_XC90",
-      "target": "battery_PHEV_20kWh",
-      "value": 3.0,
-      "relation": "电池类型"
-    },
-    {
-      "source": "model_VOLVO_XC90",
-      "target": "brand_VOLVO",
-      "value": 3.0,
-      "relation": "品牌"
-    },
-    {
-      "source": "model_VOLVO_XC90",
-      "target": "state_WA",
-      "value": 3.0,
-      "relation": "地区"
-    },
-    {
-      "source": "model_VOLVO_XC90",
-      "target": "risk_attention",
       "value": 2.0,
-      "relation": "风险状态"
-    },
-    {
-      "source": "model_VOLVO_XC90",
-      "target": "risk_good",
-      "value": 1.0,
       "relation": "风险状态"
     }
   ],
   "categories": [
     {
-      "name": "车型群组"
+      "name": "品牌群组"
     },
     {
-      "name": "电池"
-    },
-    {
-      "name": "品牌"
-    },
-    {
-      "name": "地区"
+      "name": "电池规格"
     },
     {
       "name": "风险状态"
