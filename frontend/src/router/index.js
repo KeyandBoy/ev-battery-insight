@@ -73,6 +73,13 @@ const routes = [
         component: () => import('@/views/region/ExperimentView.vue'),
         meta: { title: '对比实验' }
       },
+
+      {
+        path: 'ev-insight/health',
+        name: 'EvBatteryHealth',
+        component: () => import('@/views/ev-insight/HealthAnalysisView.vue'),
+        meta: { title: '新能源汽车电池健康分析' }
+      },
       
       // ===== Voronoi 模块（朱娜）=====
       {

@@ -47,6 +47,13 @@ import { Share, DataLine, Histogram, Grid } from '@element-plus/icons-vue'
 
 const modules = [
   {
+    name: '新能源汽车电池分析',
+    icon: 'Histogram',
+    color: '#238A8D',
+    path: '/ev-insight/health',
+    description: 'EV-Battery Insight，分析车辆电池健康状态与充电风险'
+  },
+  {
     name: '图神经网络可视化',
     icon: 'Share',
     color: '#409EFF',

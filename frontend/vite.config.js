@@ -43,6 +43,10 @@ export default defineConfig({
         target: 'http://localhost:5004',
         changeOrigin: true
       },
+      '/api/ev-insight': {
+        target: 'http://localhost:5005',
+        changeOrigin: true
+      },
       '/api/import': {
         target: 'http://localhost:5004',
         changeOrigin: true
