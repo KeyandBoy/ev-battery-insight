@@ -155,7 +155,7 @@ exit /b 0
 set "CHECK_NAME=%~1"
 set "CHECK_PORT=%~2"
 set "PORT_FOUND="
-for /l %%I in (1,1,20) do (
+for /l %%I in (1,1,30) do (
     if not defined PORT_FOUND (
         for /f "tokens=5" %%P in ('netstat -ano ^| findstr ":%CHECK_PORT% .*LISTENING"') do set "PORT_FOUND=%%P"
         if not defined PORT_FOUND timeout /t 1 /nobreak >nul

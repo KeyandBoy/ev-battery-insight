@@ -28,11 +28,16 @@ api.interceptors.response.use(
   error => {
     if (error.response) {
       const { status, data } = error.response
-      if (status === 401) {
+      if (status === 401 || status === 422) {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
-        router.push('/login')
-        ElMessage.error('登录已过期，请重新登录')
+        if (router.currentRoute.value.path !== '/login') {
+          router.push({
+            path: '/login',
+            query: { redirect: router.currentRoute.value.fullPath }
+          })
+        }
+        ElMessage.error(status === 422 ? '登录凭证无效，请重新登录' : '登录已过期，请重新登录')
       } else if (status === 409) {
         ElMessage.error(data.message || '资源冲突')
       } else {
