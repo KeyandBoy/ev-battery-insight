@@ -17,7 +17,7 @@
         >
           <el-menu-item index="social">
             <el-icon><Connection /></el-icon>
-            <span>社交网络展示</span>
+            <span>关系网络展示</span>
           </el-menu-item>
           <el-menu-item index="text">
             <el-icon><Document /></el-icon>

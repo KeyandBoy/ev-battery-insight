@@ -1,23 +1,25 @@
-# EV-Battery Insight
+# Unified Visualization Platform
 
-面向新能源汽车电池健康与充电风险的多源数据融合智能可视分析平台。
+通用多源数据可视化与分析工具，支持关系网络、层次数据、高维数据和空间分布等多种分析场景。
 
 ## 项目定位
 
-本项目融合车辆、电池、充电、故障、车型和供应链等多源异构数据，完成数据质量治理、电池健康评分、车辆群体分析、异常识别、多视图联动和风险报告生成。
+本项目提供数据源管理、数据处理、交互式可视化、统计分析、多视图联动和结果导出能力，适用于社交关系、人物关系、组织架构、学术引用、供应链等多种数据。
+
+新能源汽车电池健康与充电风险分析是当前重点应用案例。该案例将车辆、电池、充电、故障、车型和供应链数据作为数据源，完成健康评分、异常识别、车辆群体分析和风险可视化。
 
 项目由两部分组成：
 
-- `dataforge/`：EV DataForge 数据筛选、清洗、标准化和质量评估辅助工具。
-- `frontend/` 与 `backend/`：在原综合可视化平台基础上改造的主分析平台。
+- `dataforge/`：数据筛选、清洗、标准化和质量评估辅助工具，可用于新能源汽车等数据源。
+- `frontend/` 与 `backend/`：通用多源数据可视化分析平台及应用案例服务。
 
 ## 当前开发顺序
 
-1. 使用 `scripts/generate_ev_sample_data.py` 生成可控模拟数据。
-2. 使用 EV DataForge 将原始 CSV 转换为标准数据并生成质量报告。
-3. 接入主平台，完成电池健康评分和车辆聚类。
-4. 实现风险车辆、车型、充电和故障的多视图联动。
-5. 使用公开电池或充电数据进行第二轮验证。
+1. 使用示例数据源验证关系网络、层次数据和高维分析流程。
+2. 使用 DataForge 将原始数据转换为标准数据并生成质量报告。
+3. 接入新能源汽车电池数据，完成健康评分和充电风险分析。
+4. 实现不同数据源的多视图联动、统计分析和结果导出。
+5. 使用公开数据验证工具对其他行业和数据类型的适用性。
 
 ## Python 环境
 
@@ -29,9 +31,9 @@ conda activate evBatteryInsight
 python -m pip install -r requirements-ev-battery-insight.txt
 ```
 
-## EV Insight 服务
+## 应用案例服务
 
-健康评分 API 默认使用 5005 端口：
+新能源汽车电池健康评分 API 默认使用 5005 端口：
 
 ```powershell
 python backend/ev-insight/app.py
@@ -56,15 +58,15 @@ MySQL 配置有两种方式：
 方式二：直接运行 start.bat，在终端输入 MySQL 密码。
 ```
 
-如果直接回车跳过密码，DataFlow 和 Region 会被跳过，EV Insight、Chain-Connect、Voronoi 和前端仍会启动。
+启动时会自动创建 `dataflow_canvas` 和 `highdim_region_vis` 数据库。如果直接回车跳过密码，DataFlow 和 Region 会被跳过，EV Insight、Chain-Connect、Voronoi 和前端仍会启动。
 
 ## 数据声明
 
 `data/simulated/` 中的数据为程序生成的模拟数据，不代表真实车辆或真实安全结论。公开数据必须在 `data/raw/README.md` 中记录来源、许可协议和处理方式。
 
-## 原始平台
+## 分析能力
 
-原有四个可视化模块保留在 `frontend/` 和 `backend/` 中，分别提供层次数据、Treemap、大屏、高维降维聚类、Voronoi 和关系图谱能力。后续将通过统一数据模型和新能源汽车业务服务进行整合。
+平台将数据质量治理、关系网络、层次数据、高维聚类、空间分布和应用案例服务整合到统一的分析流程中。DataFlow、Region、Voronoi 和 Chain-Connect 是通用分析组件；新能源汽车电池分析则是当前重点应用案例。
 
 ## 风险边界
 

@@ -11,7 +11,7 @@
           <el-icon :size="36" color="#409EFF"><Share /></el-icon>
         </div>
         <h1>ChainConnect</h1>
-        <p>网络数据可视化构件平台</p>
+        <p>关系网络数据可视化分析</p>
       </div>
       <el-form ref="formRef" :model="form" :rules="rules" class="auth-form" @submit.prevent="handleLogin">
         <el-form-item prop="username">

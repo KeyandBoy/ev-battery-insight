@@ -11,7 +11,7 @@
           <el-icon :size="36" color="#409EFF"><Share /></el-icon>
         </div>
         <h1>注册账号</h1>
-        <p>加入 ChainConnect 探索网络数据可视化</p>
+         <p>创建账号，开始多源数据可视化分析</p>
       </div>
       <el-form ref="formRef" :model="form" :rules="rules" class="auth-form" @submit.prevent="handleRegister">
         <el-form-item prop="username">

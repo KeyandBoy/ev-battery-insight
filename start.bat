@@ -45,8 +45,15 @@ if not defined MYSQL_PASSWORD (
 )
 if defined MYSQL_PASSWORD (
     echo [INFO] MySQL credentials loaded for DataFlow and Region.
-    call :start_mysql_python "DataFlow" "%ROOT%backend\dataflow" "%ROOT%backend\dataflow\run.py" 5001 "%LOG_DIR%\dataflow.log" dataflow_canvas
-    call :start_mysql_python "Region" "%ROOT%backend\region" "%ROOT%backend\region\app.py" 5002 "%LOG_DIR%\region.log" highdim_region_vis
+    echo [INFO] Checking required MySQL databases...
+    "%PYTHON_EXE%" "%ROOT%scripts\ensure_mysql_databases.py"
+    if errorlevel 1 (
+        echo [ERROR] MySQL is reachable only if credentials and server are correct.
+        echo [WARN]  DataFlow and Region were skipped. See logs or fix .env.
+    ) else (
+        call :start_mysql_python "DataFlow" "%ROOT%backend\dataflow" "%ROOT%backend\dataflow\run.py" 5001 "%LOG_DIR%\dataflow.log" dataflow_canvas
+        call :start_mysql_python "Region" "%ROOT%backend\region" "%ROOT%backend\region\app.py" 5002 "%LOG_DIR%\region.log" highdim_region_vis
+    )
 ) else (
     echo [WARN] No MySQL password. DataFlow and Region were skipped.
     echo [HINT] Put MYSQL_PASSWORD in .env or enter it when starting again.
@@ -65,7 +72,7 @@ if errorlevel 1 (
 
 echo.
 echo [INFO] Waiting for services to become ready...
-timeout /t 6 /nobreak >nul
+timeout /t 10 /nobreak >nul
 
 call :check_port "DataFlow" 5001
 call :check_port "Region" 5002
@@ -94,12 +101,17 @@ set "SERVICE_DIR=%~2"
 set "SERVICE_SCRIPT=%~3"
 set "SERVICE_PORT=%~4"
 set "SERVICE_LOG=%~5"
+call :is_port_in_use %SERVICE_PORT%
+if defined PORT_FOUND (
+    echo [SKIP]  %SERVICE_NAME% is already running on port %SERVICE_PORT%.
+    exit /b 0
+)
 echo [INFO] Starting %SERVICE_NAME% on port %SERVICE_PORT%...
 start "" /b /D "%SERVICE_DIR%" cmd /c ""%PYTHON_EXE%" "%SERVICE_SCRIPT%" > "%SERVICE_LOG%" 2>&1"
 if errorlevel 1 (
     echo [ERROR] %SERVICE_NAME% process could not be created.
 ) else (
-    echo [OK]    %SERVICE_NAME% process created. Log: logs\%SERVICE_NAME%.log
+    echo [OK]    %SERVICE_NAME% process created. Log: %SERVICE_LOG%
 )
 exit /b 0
 
@@ -110,12 +122,17 @@ set "SERVICE_SCRIPT=%~3"
 set "SERVICE_PORT=%~4"
 set "SERVICE_LOG=%~5"
 set "SERVICE_DATABASE=%~6"
+call :is_port_in_use %SERVICE_PORT%
+if defined PORT_FOUND (
+    echo [SKIP]  %SERVICE_NAME% is already running on port %SERVICE_PORT%.
+    exit /b 0
+)
 echo [INFO] Starting %SERVICE_NAME% on port %SERVICE_PORT%...
 start "" /b /D "%SERVICE_DIR%" cmd /c "set DATABASE_URL=mysql+pymysql://%MYSQL_USER%:%MYSQL_PASSWORD%@%MYSQL_HOST%:%MYSQL_PORT%/%SERVICE_DATABASE%?charset=utf8mb4&& "%PYTHON_EXE%" "%SERVICE_SCRIPT%" > "%SERVICE_LOG%" 2>&1"
 if errorlevel 1 (
     echo [ERROR] %SERVICE_NAME% process could not be created.
 ) else (
-    echo [OK]    %SERVICE_NAME% process created. Log: logs\%SERVICE_NAME%.log
+    echo [OK]    %SERVICE_NAME% process created. Log: %SERVICE_LOG%
 )
 exit /b 0
 
@@ -129,11 +146,21 @@ for /f "usebackq tokens=1,* delims==" %%A in ("%ROOT%.env") do (
 )
 exit /b 0
 
+:is_port_in_use
+set "PORT_FOUND="
+for /f "tokens=5" %%P in ('netstat -ano ^| findstr ":%~1 .*LISTENING"') do set "PORT_FOUND=%%P"
+exit /b 0
+
 :check_port
 set "CHECK_NAME=%~1"
 set "CHECK_PORT=%~2"
 set "PORT_FOUND="
-for /f "tokens=5" %%P in ('netstat -ano ^| findstr ":%CHECK_PORT% .*LISTENING"') do set "PORT_FOUND=%%P"
+for /l %%I in (1,1,20) do (
+    if not defined PORT_FOUND (
+        for /f "tokens=5" %%P in ('netstat -ano ^| findstr ":%CHECK_PORT% .*LISTENING"') do set "PORT_FOUND=%%P"
+        if not defined PORT_FOUND timeout /t 1 /nobreak >nul
+    )
+)
 if defined PORT_FOUND (
     echo [OK]    %CHECK_NAME% is listening on %CHECK_PORT%
 ) else (

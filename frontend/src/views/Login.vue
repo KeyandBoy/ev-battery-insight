@@ -4,7 +4,7 @@
       <div class="login-header">
         <div class="brand-icon">🎯</div>
         <h2>综合可视化平台</h2>
-        <p class="subtitle">集成4大可视化模块的一体化分析系统</p>
+        <p class="subtitle">通用多源数据可视化与分析工具</p>
       </div>
 
       <el-form :model="form" :rules="rules" ref="formRef" class="login-form">
@@ -43,10 +43,15 @@
         </el-form-item>
       </el-form>
 
+      <div class="register-entry">
+        <span>还没有账号？</span>
+        <el-button link type="primary" @click="router.push('/register')">立即注册</el-button>
+      </div>
+
       <div class="module-preview">
         <p class="preview-title">平台包含以下模块：</p>
         <div class="module-tags">
-          <el-tag effect="plain" size="small">图神经网络可视化</el-tag>
+          <el-tag effect="plain" size="small">关系网络分析</el-tag>
           <el-tag effect="plain" size="small">数据流画布</el-tag>
           <el-tag effect="plain" size="small">高维区域可视化</el-tag>
           <el-tag effect="plain" size="small">Voronoi图分析</el-tag>
@@ -178,6 +183,16 @@ const handleLogin = async () => {
 
 .login-btn {
   width: 100%;
+}
+
+.register-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: -8px 0 22px;
+  color: #718096;
+  font-size: 14px;
 }
 
 .module-preview {

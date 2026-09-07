@@ -5,7 +5,7 @@
       <div class="top-bar-left">
         <el-icon :size="24" color="#409EFF"><Share /></el-icon>
         <span class="brand">ChainConnect</span>
-        <el-tag type="info" size="small" effect="plain">网络数据可视化构件</el-tag>
+        <el-tag type="info" size="small" effect="plain">关系网络可视化</el-tag>
       </div>
       <div class="top-bar-right">
         <el-dropdown trigger="click" @command="handleUserCommand">
