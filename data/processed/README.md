@@ -2,7 +2,7 @@
 
 `public_ev_vehicles.csv` 和 `public_ev_readings.csv` 是由公开的 Electric Vehicle Population Data 前 200 条有效记录整理生成的上传测试文件。
 
-`public_ev_battery_network.json` 是面向关系网络可视化的多层图数据，可直接在 Chain-Connect 的“导入 JSON”中上传，也会在服务重新初始化时作为示例数据集出现。
+`public_ev_battery_network.json` 是面向关系网络可视化的多层聚合图数据，可直接在 Chain-Connect 的“导入 JSON”中上传，也会在服务重新初始化时作为示例数据集出现。相同车型、电池容量区间、品牌、地区和风险状态已合并，避免节点过多导致画布卡顿。
 
 ```text
 readings：data/processed/public_ev_readings.csv
