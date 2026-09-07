@@ -41,6 +41,15 @@ python backend/ev-insight/app.py
 
 接口：`POST /api/ev-insight/health-score`，字段为 `readings`（必填）和 `vehicles`（可选）两个 CSV 文件。
 
+## 测试数据
+
+可直接上传以下整理好的公开数据测试文件：
+
+- `data/processed/public_ev_readings.csv`
+- `data/processed/public_ev_vehicles.csv`
+
+数据来源和处理说明见 `data/raw/README.md` 与 `data/processed/README.md`。其中 readings 中的运行指标是派生测试值，不代表真实电池遥测。
+
 ## 一键启动
 
 双击项目根目录的 `start.bat`，或在 PowerShell 中执行：

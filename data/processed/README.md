@@ -1,0 +1,16 @@
+# 测试数据
+
+`public_ev_vehicles.csv` 和 `public_ev_readings.csv` 是由公开的 Electric Vehicle Population Data 前 200 条有效记录整理生成的上传测试文件。
+
+```text
+readings：data/processed/public_ev_readings.csv
+vehicles：data/processed/public_ev_vehicles.csv
+```
+
+原始公开数据只有车辆登记和续航字段，不包含电池运行遥测。因此 `temperature_c`、`voltage_v`、`remaining_capacity_kwh` 和 `estimated_range_km` 是为验证本项目接口而生成的派生测试值，不能用于真实电池安全结论。
+
+生成命令：
+
+```powershell
+python scripts/prepare_public_ev_test_data.py
+```
