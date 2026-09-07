@@ -19,6 +19,16 @@
 4. 实现风险车辆、车型、充电和故障的多视图联动。
 5. 使用公开电池或充电数据进行第二轮验证。
 
+## EV Insight 服务
+
+健康评分 API 默认使用 5005 端口：
+
+```powershell
+python backend/ev-insight/app.py
+```
+
+接口：`POST /api/ev-insight/health-score`，字段为 `readings`（必填）和 `vehicles`（可选）两个 CSV 文件。
+
 ## 数据声明
 
 `data/simulated/` 中的数据为程序生成的模拟数据，不代表真实车辆或真实安全结论。公开数据必须在 `data/raw/README.md` 中记录来源、许可协议和处理方式。
