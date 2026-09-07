@@ -62,8 +62,35 @@ def init_db():
     count = cursor.fetchone()[0]
     if count == 0:
         _insert_sample_data(conn)
+    else:
+        _ensure_ev_sample_data(conn)
 
     conn.close()
+
+
+def _ensure_ev_sample_data(conn):
+    """Add generated application-case data to existing installations once."""
+    import json
+    from pathlib import Path
+
+    name = "新能源汽车电池健康与充电风险关系网络"
+    exists = conn.execute("SELECT 1 FROM sample_datasets WHERE name = ? LIMIT 1", (name,)).fetchone()
+    graph_path = Path(__file__).resolve().parents[2] / "data" / "processed" / "public_ev_battery_network.json"
+    if not graph_path.exists():
+        return
+    graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    if exists:
+        conn.execute(
+            "UPDATE sample_datasets SET description = ?, graph_data = ? WHERE name = ?",
+            (graph["description"], json.dumps(graph, ensure_ascii=False), name),
+        )
+        conn.commit()
+        return
+    conn.execute(
+        "INSERT INTO sample_datasets (name, description, category, graph_data) VALUES (?, ?, ?, ?)",
+        (name, graph["description"], "ev_battery", json.dumps(graph, ensure_ascii=False)),
+    )
+    conn.commit()
 
 
 def _insert_sample_data(conn):
@@ -284,6 +311,11 @@ def _insert_sample_data(conn):
         ("公司组织架构", "16个节点23条边的公司内部组织架构与协作关系", "organization", json.dumps(company_network, ensure_ascii=False)),
         ("学术引用网络", "12个节点20条边的AI领域学术论文引用关系", "academic", json.dumps(academic_network, ensure_ascii=False)),
     ]
+    from pathlib import Path
+    ev_graph_path = Path(__file__).resolve().parents[2] / "data" / "processed" / "public_ev_battery_network.json"
+    if ev_graph_path.exists():
+        ev_graph = json.loads(ev_graph_path.read_text(encoding="utf-8"))
+        datasets.append(("新能源汽车电池健康与充电风险关系网络", ev_graph["description"], "ev_battery", json.dumps(ev_graph, ensure_ascii=False)))
 
     cursor.executemany(
         "INSERT INTO sample_datasets (name, description, category, graph_data) VALUES (?, ?, ?, ?)",

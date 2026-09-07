@@ -11,14 +11,14 @@ import pandas as pd
 
 
 ALIASES = {
-    "vehicle_id": {"vehicle_id", "vehicleid", "vehicle_no", "vehicle_number", "car_id", "vin"},
+    "vehicle_id": {"vehicle_id", "vehicleid", "vehicle_no", "vehicle_number", "car_id", "vin", "dol_vehicle_id", "vehicle_id_number"},
     "timestamp": {"timestamp", "time", "datetime", "date_time", "record_time"},
     "temperature_c": {"temp", "temperature", "battery_temp", "battery_temperature", "temperature_c"},
     "voltage_v": {"voltage", "cell_voltage", "battery_voltage", "voltage_v"},
     "current_a": {"current", "battery_current", "current_a"},
     "soc_percent": {"soc", "state_of_charge", "charge_level", "soc_percent"},
     "remaining_capacity_kwh": {"capacity", "remaining_capacity", "battery_capacity", "remaining_capacity_kwh"},
-    "estimated_range_km": {"range", "estimated_range", "range_km", "estimated_range_km"},
+    "estimated_range_km": {"range", "estimated_range", "range_km", "estimated_range_km", "electric_range", "electric_range_miles"},
     "mileage_km": {"mileage", "odometer", "distance", "mileage_km"},
     "power_kw": {"power", "charging_power", "power_kw"},
 }
@@ -37,7 +37,7 @@ def infer_standard_name(column: str) -> str | None:
     return None
 
 
-def convert_units(frame: pd.DataFrame, source: Path) -> list[str]:
+def convert_units(frame: pd.DataFrame, source: Path, original_names: dict[str, str] | None = None) -> list[str]:
     warnings: list[str] = []
     if "timestamp" in frame:
         parsed = pd.to_datetime(frame["timestamp"], errors="coerce", utc=True)
@@ -54,10 +54,13 @@ def convert_units(frame: pd.DataFrame, source: Path) -> list[str]:
                 frame[column] = values
         elif column in {"temperature_c", "voltage_v", "current_a", "remaining_capacity_kwh", "estimated_range_km", "mileage_km", "power_kw"}:
             frame[column] = pd.to_numeric(frame[column], errors="coerce")
+            if column == "estimated_range_km" and original_names and original_names.get(column) in {"Electric Range", "electric_range_miles"}:
+                frame[column] = frame[column] * 1.60934
+                warnings.append("Electric Range 已从英里转换为公里")
     return warnings
 
 
-def clean_file(input_path: Path, output_path: Path) -> dict:
+def clean_file(input_path: Path, output_path: Path, drop_anomalies: bool = False) -> dict:
     source = pd.read_csv(input_path)
     original_rows, original_columns = len(source), list(source.columns)
     mappings = {}
@@ -68,19 +71,36 @@ def clean_file(input_path: Path, output_path: Path) -> dict:
             selected[standard] = source[column]
             mappings[column] = standard
     frame = pd.DataFrame(selected)
-    warnings = convert_units(frame, input_path)
+    warnings = convert_units(frame, input_path, {value: key for key, value in mappings.items()})
+    missing_vehicle_ids = 0
+    if "vehicle_id" in frame:
+        frame["vehicle_id"] = frame["vehicle_id"].astype("string").str.strip()
+        missing_vehicle_ids = int(frame["vehicle_id"].isna().sum() + (frame["vehicle_id"] == "").sum())
+        frame = frame[frame["vehicle_id"].notna() & frame["vehicle_id"].ne("")].copy()
     duplicate_rows = int(frame.duplicated().sum())
     frame = frame.drop_duplicates().reset_index(drop=True)
     missing_before = float(frame.isna().mean().mean()) if not frame.empty else 0.0
     for column in frame.select_dtypes(include="number").columns:
         frame[column] = frame[column].interpolate(limit_direction="both")
     invalid_ranges = {}
-    ranges = {"soc_percent": (0, 100), "temperature_c": (-50, 100), "voltage_v": (0, 1000), "current_a": (-1000, 1000)}
+    anomaly_mask = pd.Series(False, index=frame.index)
+    ranges = {
+        "soc_percent": (0, 100),
+        "temperature_c": (-50, 100),
+        "voltage_v": (0, 1000),
+        "current_a": (-1000, 1000),
+        "estimated_range_km": (0, 2000),
+        "mileage_km": (0, 3000000),
+    }
     for column, (low, high) in ranges.items():
         if column in frame:
             invalid = (frame[column] < low) | (frame[column] > high)
             invalid_ranges[column] = int(invalid.sum())
             frame[f"{column}_business_anomaly"] = invalid
+            anomaly_mask = anomaly_mask | invalid.fillna(False)
+    anomaly_rows_removed = int(anomaly_mask.sum()) if drop_anomalies else 0
+    if drop_anomalies:
+        frame = frame.loc[~anomaly_mask].reset_index(drop=True)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output_path, index=False)
     quality = {
@@ -91,6 +111,9 @@ def clean_file(input_path: Path, output_path: Path) -> dict:
         "mapped_columns": mappings,
         "unmapped_columns": [column for column in original_columns if column not in mappings],
         "duplicate_rows_removed": duplicate_rows,
+        "missing_vehicle_ids_removed": missing_vehicle_ids,
+        "business_anomaly_rows_removed": anomaly_rows_removed,
+        "drop_anomalies": drop_anomalies,
         "missing_ratio_after_cleaning": float(frame.isna().mean().mean()) if not frame.empty else 0.0,
         "missing_ratio_before_cleaning": missing_before,
         "business_anomalies": invalid_ranges,
@@ -106,8 +129,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Normalize an EV battery CSV and create a quality report.")
     parser.add_argument("input", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--drop-anomalies", action="store_true", help="Remove rows outside configured business ranges instead of marking them.")
     args = parser.parse_args()
-    result = clean_file(args.input, args.output)
+    result = clean_file(args.input, args.output, args.drop_anomalies)
     print(json.dumps({"output": str(args.output), "quality_score": result["quality_score"]}, ensure_ascii=False))
 
 

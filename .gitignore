@@ -15,6 +15,8 @@ venv/
 **/uploads/
 data/raw/*
 !data/raw/.gitkeep
+data/processed/public_ev_cleaned.csv
+data/processed/public_ev_cleaned.csv.quality.json
 
 # Secrets and local configuration
 .env
