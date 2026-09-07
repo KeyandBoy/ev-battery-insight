@@ -47,7 +47,16 @@ python backend/ev-insight/app.py
 .\start.bat
 ```
 
-脚本会启动 5 个后端服务和前端，检查 5001 至 5005、5175 端口，并自动打开浏览器。运行日志位于 `logs/`。停止服务请运行 `stop.bat`。
+脚本只保留一个启动控制终端，其他服务在后台运行；它会检查 5001 至 5005、5175 端口，并自动打开浏览器。运行日志位于 `logs/`。停止服务请运行 `stop.bat`。
+
+MySQL 配置有两种方式：
+
+```text
+方式一：在项目根目录创建 .env，填写 MYSQL_USER 和 MYSQL_PASSWORD。
+方式二：直接运行 start.bat，在终端输入 MySQL 密码。
+```
+
+如果直接回车跳过密码，DataFlow 和 Region 会被跳过，EV Insight、Chain-Connect、Voronoi 和前端仍会启动。
 
 ## 数据声明
 
