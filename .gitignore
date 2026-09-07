@@ -19,8 +19,8 @@ data/raw/*
 # Secrets and local configuration
 .env
 **/.env
-!.env.example
-**/.env.example
+!/.env.example
+!**/.env.example
 
 # Legacy deployment artifacts containing local credentials or shortcuts
 /DEPLOYMENT_GUIDE.md
