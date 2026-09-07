@@ -39,6 +39,16 @@ python backend/ev-insight/app.py
 
 接口：`POST /api/ev-insight/health-score`，字段为 `readings`（必填）和 `vehicles`（可选）两个 CSV 文件。
 
+## 一键启动
+
+双击项目根目录的 `start.bat`，或在 PowerShell 中执行：
+
+```powershell
+.\start.bat
+```
+
+脚本会启动 5 个后端服务和前端，检查 5001 至 5005、5175 端口，并自动打开浏览器。运行日志位于 `logs/`。停止服务请运行 `stop.bat`。
+
 ## 数据声明
 
 `data/simulated/` 中的数据为程序生成的模拟数据，不代表真实车辆或真实安全结论。公开数据必须在 `data/raw/README.md` 中记录来源、许可协议和处理方式。

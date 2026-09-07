@@ -43,3 +43,6 @@ Thumbs.db
 # Generated experiment output
 experiments/results/*
 !experiments/results/.gitkeep
+
+# Runtime logs
+logs/
