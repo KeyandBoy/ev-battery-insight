@@ -19,6 +19,16 @@
 4. 实现风险车辆、车型、充电和故障的多视图联动。
 5. 使用公开电池或充电数据进行第二轮验证。
 
+## Python 环境
+
+项目使用独立 Anaconda 环境 `evBatteryInsight`，Python 3.12。统一依赖清单位于 `requirements-ev-battery-insight.txt`。
+
+```powershell
+conda env create -f environment.yml
+conda activate evBatteryInsight
+python -m pip install -r requirements-ev-battery-insight.txt
+```
+
 ## EV Insight 服务
 
 健康评分 API 默认使用 5005 端口：
